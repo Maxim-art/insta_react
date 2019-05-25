@@ -11,11 +11,11 @@ export default class Header extends Component {
           </a>
           <nav className="links">
             <ul>
-              <li>Лента
-                <a href="#"></a>
+              <li>
+                <a href="#" className="menu__links">Лента</a>
               </li>
-              <li>Профиль
-                <a href="#"></a>
+              <li>
+                <a href="#" className="menu__links">Профиль</a>
               </li>
             </ul>
           </nav>

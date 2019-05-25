@@ -6,16 +6,16 @@ export default class Header extends Component {
     return(
       <header>
         <div className="container h-flex">
-          <a href="#" className="logo">
+          <a href="localhost:3000" className="logo">
             <img alt="logo" src={logo}></img>
           </a>
           <nav className="links">
             <ul>
               <li>
-                <a href="#" className="menu__links">Лента</a>
+                <a href="localhost:3000" className="menu__links">Лента</a>
               </li>
               <li>
-                <a href="#" className="menu__links">Профиль</a>
+                <a href="localhost:3000" className="menu__links">Профиль</a>
               </li>
             </ul>
           </nav>

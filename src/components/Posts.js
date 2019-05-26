@@ -1,13 +1,75 @@
 import React, {Component} from 'react';
-import Post from './Post';
+import User from './User';
+import IstaService from '../services/instaservice';
+import ErrorMessage from './ErrorMessage';
 
 export default class Posts extends Component {
-    render() {
-        return(
-            <div className="left">
-                <Post src="https://www.nastol.com.ua/pic/201205/2560x1440/nastol.com.ua-23690.jpg" alt="nature" />
-                <Post src="https://img3.goodfon.ru/original/1920x1200/2/6c/waterfall-sea-lake-deep-546.jpg" alt="nature" />
-            </div>
-        )
+  IstaService = new IstaService();
+  state = {
+    posts: [],
+    error: false
+  }
+
+  componentDidMount() {
+    this.updatePosts();
+  }
+
+  updatePosts() {
+    this.IstaService.getAllPosts()
+      .then(this.onPostsLoaded)
+      .catch(this.onError)
+  }
+
+  onPostsLoaded = (posts) => {
+    console.log(posts);
+    this.setState({
+      posts,
+      error: false
+    })
+  }
+
+  onError = (err) => {
+    this.setState({
+      error: true
+    })
+  }
+
+  renderItems(arr) {
+    return arr.map((item) => {
+      const {name, altname, photo, src, alt, descr, id} = item;
+
+      return (
+        <div key={id} className="post">
+          <User
+            src={photo}
+            alt={altname}
+            name={name}
+            min
+          />
+          <img src={src} alt={alt}></img>
+          <div className="post__name">
+            {name}
+          </div>
+          <div className="post__descr">
+            {descr}
+          </div>
+        </div>
+      )
+    })
+  }
+
+  render() {
+    const {error, posts} = this.state;
+    if (error) {
+      return <ErrorMessage/>
     }
+
+    const items = this.renderItems(posts);
+
+    return(
+      <div className="left">
+        {items}
+      </div>
+    )
+  }
 }

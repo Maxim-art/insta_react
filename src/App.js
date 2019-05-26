@@ -3,13 +3,13 @@ import Header from './components/Header';
 import Feed from './components/Feed';
 
 function App() {
-    return (
-        <div className="App">
-            <Header/>
-            <Feed/>
-            {/* <div></div> */}
-        </div>
-    );
+  return (
+    <div className="App">
+      <Header/>
+      <Feed/>
+      {/* <div></div> */}
+    </div>
+  );
 }
 
 export default App;

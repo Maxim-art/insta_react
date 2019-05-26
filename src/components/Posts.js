@@ -21,7 +21,6 @@ export default class Posts extends Component {
   }
 
   onPostsLoaded = (posts) => {
-    console.log(posts);
     this.setState({
       posts,
       error: false
@@ -35,7 +34,7 @@ export default class Posts extends Component {
   }
 
   renderItems(arr) {
-    return arr.map((item) => {
+    return arr.map(item => {
       const {name, altname, photo, src, alt, descr, id} = item;
 
       return (

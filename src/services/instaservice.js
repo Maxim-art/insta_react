@@ -1,20 +1,20 @@
 export default class InstaService {
   constructor() {
-    this._apiBase = 'http://localhost:3004/';
+    this._apiBase = 'http://maxpike.ru/';
   }
 
   getResource = async (url) => {
     const res = await fetch(`${this._apiBase}${url}`);
 
     if (!res.ok) {
-      throw new Error(`Could not fetch ${url}, received ${res.status}`);
+      throw new Error(`Could not fetch ${url}, recived ${res.status}`);
     }
 
     return res.json();
   }
 
   getAllPosts = async () => {
-    const res = await this.getResource('posts/');
-    return res;
+    const res = await this.getResource('posts.php/');
+    return res.posts;
   }
 }

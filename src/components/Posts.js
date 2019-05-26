@@ -53,14 +53,14 @@ export default class Posts extends Component {
             {descr}
           </div>
         </div>
-      )
-    })
+      );
+    });
   }
 
   render() {
     const {error, posts} = this.state;
     if (error) {
-      return <ErrorMessage/>
+      return (<ErrorMessage/>);
     }
 
     const items = this.renderItems(posts);
@@ -69,6 +69,6 @@ export default class Posts extends Component {
       <div className="left">
         {items}
       </div>
-    )
+    );
   }
 }

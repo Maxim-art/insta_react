@@ -36,26 +36,40 @@ export default class Users extends Component {
 
   renderUsers(arr) {
     return (
-      <div className="users__block">
-        {
-          arr.map(item => {
-            const {name, altname, photo, id} = item;
-
-            if (id !== '1') { // скрытие первого повтора
-              return (
-                <User
-                  key = {id}
-                  // ключ тут нужен?
-                  src = {photo}
-                  alt = {altname}
-                  name = {name}
-                  min
-                />
-              );
-            }
-          })
+      arr.map((item, i) => {
+        const {name, altname, photo, id} = item;
+        if (i !== 0) { // скрытие первого повтора
+          return (
+            <User
+              key = {id}
+              src = {photo}
+              alt = {altname}
+              name = {name}
+              min />
+          );
+        } else {
+          return (null);
         }
-      </div>
+      })
+    );
+  }
+
+  renderMe(arr) {
+    return (
+      arr.map((item, i) => {
+        const {name, altname, photo, id} = item;
+        if (i === 0) {
+          return (
+            <User
+              key = {id}
+              src = {photo}
+              alt = {altname}
+              name = {name} />
+          )
+        } else {
+          return (null);
+        }
+      })
     );
   }
 
@@ -66,15 +80,14 @@ export default class Users extends Component {
     }
 
     const items = this.renderUsers(users);
+    const my_profile = this.renderMe(users);
 
     return (
       <div className="right">
-        <User
-          src = "https://ksassets.timeincuk.net/wp/uploads/sites/46/2017/03/Priti-Patel-re-sized.jpg"
-          alt = "Jessy"
-          name = "jessy_john"
-        />
-        {items}
+        {my_profile}
+        <div className="users__block">
+          {items}
+        </div>
       </div>
     );
   }

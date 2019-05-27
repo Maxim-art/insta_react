@@ -43,15 +43,10 @@ export default class Posts extends Component {
             src={photo}
             alt={altname}
             name={name}
-            min
-          />
+            min />
           <img src={src} alt={alt}></img>
-          <div className="post__name">
-            {name}
-          </div>
-          <div className="post__descr">
-            {descr}
-          </div>
+          <div className="post__name">{name}</div>
+          <div className="post__descr">{descr}</div>
         </div>
       );
     });

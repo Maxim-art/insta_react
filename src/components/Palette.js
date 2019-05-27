@@ -7,7 +7,7 @@ export default class Palette extends Component {
   state = {
     photos: [],
     error: false
-  };
+  }
 
   componentDidMount() {
     this.updatePhotos();
@@ -35,7 +35,6 @@ export default class Palette extends Component {
   renderItems(arr) {
     return arr.map(item => {
       const {id, src, alt} = item;
-      console.log('item');
       return (
         <img src={src} alt={alt} key={id}/>
       );
@@ -49,12 +48,10 @@ export default class Palette extends Component {
     }
 
     const items = this.renderItems(photos);
-
     return(
       <div className="palette">
         {items}
       </div>
     );
   }
-
 }

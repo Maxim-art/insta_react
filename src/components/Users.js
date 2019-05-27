@@ -3,7 +3,6 @@ import User from './User';
 import InstaService from '../services/instaservice';
 import ErrorMessage from './ErrorMessage';
 
-
 export default class Users extends Component {
   InstaService = new InstaService();
 
